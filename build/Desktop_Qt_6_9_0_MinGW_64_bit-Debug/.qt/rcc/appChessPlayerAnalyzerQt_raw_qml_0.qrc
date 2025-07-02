@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="/qt/qml/ChessPlayerAnalyzerQt/">
+    <file alias="Main.qml">H:/Git_Overture/ChessPlayerAnalyzerQt/Main.qml</file>
+    <file alias="FeatureCard.qml">H:/Git_Overture/ChessPlayerAnalyzerQt/FeatureCard.qml</file>
+  </qresource>
+</RCC>
+

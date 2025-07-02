@@ -1,0 +1,6 @@
+--resource
+H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qt/rcc/qmake_ChessPlayerAnalyzerQt.qrc
+--resource
+H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qt/rcc/appChessPlayerAnalyzerQt_raw_qml_0.qrc
+/qt/qml/ChessPlayerAnalyzerQt/Main.qml
+/qt/qml/ChessPlayerAnalyzerQt/FeatureCard.qml
