@@ -7,7 +7,7 @@ Rectangle {
     property string tooltipText: ""
 
     width: parent.width
-    height: 32
+    height: 60
     color: "transparent"
 
     Row {
@@ -16,7 +16,8 @@ Rectangle {
 
         Column {
             anchors.verticalCenter: parent.verticalCenter
-            width: parent.width * 0.7
+            width: parent.width * 0.65
+            spacing: 4
 
             Text {
                 text: label
@@ -30,10 +31,11 @@ Rectangle {
         Text {
             anchors.verticalCenter: parent.verticalCenter
             text: value
-            font.pixelSize: 14
+            font.pixelSize: 16
             font.bold: true
             color: "white"
             horizontalAlignment: Text.AlignRight
+            width: parent.width * 0.25
         }
 
         Rectangle {
