@@ -16,12 +16,12 @@ Frame {
     }
 
     Column {
-        spacing: 8
+        spacing: 16
         width: parent.width
         Text { 
             id: titleLabel
             color: "#8fa3bc"
-            font.pixelSize: 18
+            font.pixelSize: 20
             font.weight: Font.Medium
             wrapMode: Text.WordWrap
             width: parent.width
@@ -29,7 +29,7 @@ Frame {
         Text { 
             id: valueLabel
             color: "white"
-            font.pixelSize: 42
+            font.pixelSize: 48
             font.bold: true
             wrapMode: Text.WordWrap
             width: parent.width
@@ -37,13 +37,13 @@ Frame {
         Text { 
             id: subtitleLabel
             color: "#f39c12"
-            font.pixelSize: 16
+            font.pixelSize: 18
             visible: subtitle !== ""
             wrapMode: Text.WordWrap
             width: parent.width
         }
     }
 
-    implicitWidth: 300               // valores mínimos para layout mucho más grandes
-    implicitHeight: 160
+    implicitWidth: 350               // valores mínimos para layout aún más grandes
+    implicitHeight: 180
 }

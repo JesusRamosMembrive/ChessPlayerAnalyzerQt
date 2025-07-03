@@ -96,7 +96,7 @@ Page {
         ColumnLayout {
             id: rootLayout
             width: parent.width
-            spacing: 32
+            spacing: 40
 
             // Header with back button
             RowLayout {
@@ -199,7 +199,7 @@ Page {
             /* ───────── KPIs superiores ───────── */
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 24
+                spacing: 32
                 
                 Card { 
                     title: qsTr("Puntuación de Riesgo")
@@ -229,8 +229,8 @@ Page {
             GridLayout {
                 id: qualityGrid
                 columns: 2
-                columnSpacing: 20
-                rowSpacing: 20
+                columnSpacing: 32
+                rowSpacing: 32
                 Layout.fillWidth: true
 
                 Card { 
@@ -258,11 +258,23 @@ Page {
                 color: "white"
                 font.pixelSize: 18
             }
-            Card {
+            GridLayout {
+                columns: 2
+                columnSpacing: 32
+                rowSpacing: 32
                 Layout.fillWidth: true
-                title: qsTr("Step Function")
-                value: dummyMetrics.step_function_detected ? qsTr("Detectada") : qsTr("No Detectada")
-                subtitle: qsTr("Nivel de Confianza ") + formatNumber(dummyMetrics.risk.confidence_level * 100, 0) + " %"
+
+                Card {
+                    title: qsTr("Step Function")
+                    value: dummyMetrics.step_function_detected ? qsTr("Detectada") : qsTr("No Detectada")
+                    subtitle: qsTr("Nivel de Confianza ") + formatNumber(dummyMetrics.risk.confidence_level * 100, 0) + " %"
+                }
+                
+                Card {
+                    title: qsTr("Nivel de Confianza")
+                    value: formatNumber(dummyMetrics.risk.confidence_level * 100, 0) + "%"
+                    subtitle: qsTr("Factores de Riesgo")
+                }
             }
 
             /* ───────── Análisis Longitudinal ───────── */
@@ -274,7 +286,7 @@ Page {
             }
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 24
+                spacing: 32
                 
                 Card { 
                     title: qsTr("ROI Medio")
@@ -297,11 +309,23 @@ Page {
                 color: "white"
                 font.pixelSize: 18
             }
-            Card {
+            GridLayout {
+                columns: 2
+                columnSpacing: 32
+                rowSpacing: 32
                 Layout.fillWidth: true
-                title: qsTr("Tendencia ACPL")
-                value: formatNumber(dummyMetrics.performance.trend_acpl, 2) + " cp / 100 partidas"
-                subtitle: dummyMetrics.performance.trend_acpl > 0 ? qsTr("Empeoramiento") : qsTr("Mejora")
+
+                Card {
+                    title: qsTr("Tendencia ACPL")
+                    value: formatNumber(dummyMetrics.performance.trend_acpl, 2) + " cp / 100 partidas"
+                    subtitle: dummyMetrics.performance.trend_acpl > 0 ? qsTr("Empeoramiento") : qsTr("Mejora")
+                }
+                
+                Card {
+                    title: qsTr("Tendencia Match Rate")
+                    value: formatNumber(dummyMetrics.performance.trend_match_rate * 100, 1) + "%"
+                    subtitle: qsTr("Análisis de tendencias temporales")
+                }
             }
 
             /* ───────── Patrones de Apertura ───────── */
@@ -313,8 +337,8 @@ Page {
             }
             GridLayout {
                 columns: 2
-                columnSpacing: 20
-                rowSpacing: 20
+                columnSpacing: 32
+                rowSpacing: 32
                 Layout.fillWidth: true
 
                 Card { 
@@ -344,8 +368,8 @@ Page {
             }
             GridLayout {
                 columns: 2
-                columnSpacing: 20
-                rowSpacing: 20
+                columnSpacing: 32
+                rowSpacing: 32
                 Layout.fillWidth: true
 
                 Card { 
@@ -375,8 +399,8 @@ Page {
             }
             GridLayout {
                 columns: 2
-                columnSpacing: 20
-                rowSpacing: 20
+                columnSpacing: 32
+                rowSpacing: 32
                 Layout.fillWidth: true
 
                 Card { 
@@ -406,7 +430,7 @@ Page {
             }
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 24
+                spacing: 32
                 
                 Card { 
                     title: qsTr("Puntuación Final")
