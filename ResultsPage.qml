@@ -96,7 +96,7 @@ Page {
         ColumnLayout {
             id: rootLayout
             width: parent.width
-            spacing: 24
+            spacing: 32
 
             // Header with back button
             RowLayout {
@@ -199,7 +199,7 @@ Page {
             /* ───────── KPIs superiores ───────── */
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 20
+                spacing: 24
                 
                 Card { 
                     title: qsTr("Puntuación de Riesgo")
@@ -274,7 +274,7 @@ Page {
             }
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 20
+                spacing: 24
                 
                 Card { 
                     title: qsTr("ROI Medio")
@@ -406,7 +406,7 @@ Page {
             }
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 20
+                spacing: 24
                 
                 Card { 
                     title: qsTr("Puntuación Final")

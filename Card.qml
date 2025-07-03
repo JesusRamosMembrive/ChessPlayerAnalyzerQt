@@ -7,7 +7,7 @@ Frame {
     property alias value:  valueLabel.text
     property alias subtitle: subtitleLabel.text    // opcional
 
-    padding: 20
+    padding: 24
     background: Rectangle {           // mismo estilo para todos
         color: "#111d30"
         radius: 8
@@ -21,7 +21,7 @@ Frame {
         Text { 
             id: titleLabel
             color: "#8fa3bc"
-            font.pixelSize: 16
+            font.pixelSize: 18
             font.weight: Font.Medium
             wrapMode: Text.WordWrap
             width: parent.width
@@ -29,7 +29,7 @@ Frame {
         Text { 
             id: valueLabel
             color: "white"
-            font.pixelSize: 32
+            font.pixelSize: 42
             font.bold: true
             wrapMode: Text.WordWrap
             width: parent.width
@@ -37,13 +37,13 @@ Frame {
         Text { 
             id: subtitleLabel
             color: "#f39c12"
-            font.pixelSize: 14
+            font.pixelSize: 16
             visible: subtitle !== ""
             wrapMode: Text.WordWrap
             width: parent.width
         }
     }
 
-    implicitWidth: 220               // valores mínimos para layout más grandes
-    implicitHeight: 120
+    implicitWidth: 300               // valores mínimos para layout mucho más grandes
+    implicitHeight: 160
 }
