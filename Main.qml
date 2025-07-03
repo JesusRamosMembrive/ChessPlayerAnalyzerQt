@@ -101,7 +101,7 @@ ApplicationWindow {
                                             anchors.centerIn: parent
                                             text: "📈"
                                             font.pixelSize: 20
-                                            color: "white"
+                                            color: "#E6EDF3"
                                         }
                                     }
 
@@ -109,8 +109,9 @@ ApplicationWindow {
                                         anchors.verticalCenter: parent.verticalCenter
                                         text: "Chess Analyzer"
                                         font.pixelSize: 20
-                                        font.bold: true
-                                        color: "white"
+                                        font.weight: Font.DemiBold
+                                        font.family: "Inter, SF Pro Display, sans-serif"
+                                        color: "#E6EDF3"
                                     }
                                 }
                             }
@@ -140,15 +141,17 @@ ApplicationWindow {
                                             anchors.horizontalCenter: parent.horizontalCenter
                                             text: "Analyze Chess Performance"
                                             font.pixelSize: 36
-                                            font.bold: true
-                                            color: "white"
+                                            font.weight: Font.DemiBold
+                                            font.family: "Inter, SF Pro Display, sans-serif"
+                                            color: "#E6EDF3"
                                         }
 
                                         Text {
                                             anchors.horizontalCenter: parent.horizontalCenter
                                             text: "Discover patterns, detect anomalies, and gain insights from chess.com game data"
                                             font.pixelSize: 18
-                                            color: "#9ca3af"
+                                            font.family: "Inter, SF Pro Display, sans-serif"
+                                            color: "#8B949E"
                                             horizontalAlignment: Text.AlignHCenter
                                             wrapMode: Text.WordWrap
                                             width: Math.min(600, parent.width)
@@ -159,10 +162,10 @@ ApplicationWindow {
                                         anchors.horizontalCenter: parent.horizontalCenter
                                         width: Math.min(384, parent.width)
                                         height: childrenRect.height
-                                        color: "#1f2937"
-                                        border.color: "#374151"
+                                        color: "#0F1A28"
+                                        border.color: "#21262D"
                                         border.width: 1
-                                        radius: 8
+                                        radius: 12
 
                                         Column {
                                             width: parent.width
@@ -186,21 +189,23 @@ ApplicationWindow {
                                                         Text {
                                                             text: "🔍"
                                                             font.pixelSize: 20
-                                                            color: "white"
+                                                            color: "#E6EDF3"
                                                         }
 
                                                         Text {
                                                             text: "New Analysis"
                                                             font.pixelSize: 18
-                                                            font.bold: true
-                                                            color: "white"
+                                                            font.weight: Font.DemiBold
+                                                            font.family: "Inter, SF Pro Display, sans-serif"
+                                                            color: "#E6EDF3"
                                                         }
                                                     }
 
                                                     Text {
                                                         text: "Enter a chess.com username to analyze"
                                                         font.pixelSize: 14
-                                                        color: "white"
+                                                        font.family: "Inter, SF Pro Display, sans-serif"
+                                                        color: "#8B949E"
                                                     }
                                                 }
                                             }
@@ -232,7 +237,8 @@ ApplicationWindow {
                                                             anchors.verticalCenter: parent.verticalCenter
                                                             anchors.margins: 12
                                                             font.pixelSize: 14
-                                                            color: "white"
+                                                            font.family: "Inter, SF Pro Display, sans-serif"
+                                                            color: "#E6EDF3"
                                                             selectByMouse: true
                                                             enabled: !isAnalyzing
 
@@ -247,7 +253,8 @@ ApplicationWindow {
                                                                 anchors.verticalCenter: parent.verticalCenter
                                                                 text: "Enter chess.com username"
                                                                 font.pixelSize: 14
-                                                                color: "#9ca3af"
+                                                                font.family: "Inter, SF Pro Display, sans-serif"
+                                                                color: "#8B949E"
                                                                 visible: parent.text.length === 0
                                                             }
                                                         }
@@ -263,8 +270,8 @@ ApplicationWindow {
                                                             anchors.fill: parent
                                                             hoverEnabled: true
                                                             enabled: !isAnalyzing && usernameInput.text.trim().length > 0
-                                                            onEntered: if (enabled) parent.color = "#15803d"
-                                                            onExited: if (enabled) parent.color = "#16a34a"
+                                                            onEntered: if (enabled) parent.color = "#0F7B5C"
+                                                            onExited: if (enabled) parent.color = "#17E88D"
                                                             onClicked: startAnalysis()
                                                         }
 
@@ -275,15 +282,17 @@ ApplicationWindow {
                                                             Text {
                                                                 text: isAnalyzing ? "⏳" : ""
                                                                 font.pixelSize: 14
-                                                                color: "white"
+                                                                font.family: "Inter, SF Pro Display, sans-serif"
+                                                                color: "#E6EDF3"
                                                                 visible: isAnalyzing
                                                             }
 
                                                             Text {
                                                                 text: isAnalyzing ? "Starting Analysis..." : "Start Analysis"
                                                                 font.pixelSize: 14
-                                                                font.bold: true
-                                                                color: "white"
+                                                                font.weight: Font.DemiBold
+                                                                font.family: "Inter, SF Pro Display, sans-serif"
+                                                                color: "#E6EDF3"
                                                             }
                                                         }
                                                     }
@@ -292,7 +301,8 @@ ApplicationWindow {
                                                         width: parent.width
                                                         text: errorMessage
                                                         font.pixelSize: 12
-                                                        color: "#ef4444"
+                                                        font.family: "Inter, SF Pro Display, sans-serif"
+                                                        color: "#FF6B6B"
                                                         wrapMode: Text.WordWrap
                                                         visible: errorMessage.length > 0
                                                     }
