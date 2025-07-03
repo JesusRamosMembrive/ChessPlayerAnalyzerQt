@@ -2,3 +2,4 @@ module ChessAnalyzer
 FeatureCard 1.0 FeatureCard.qml
 MetricCard 1.0 MetricCard.qml
 ResultsPage 1.0 ResultsPage.qml
+Card 1.0 Card.qml
