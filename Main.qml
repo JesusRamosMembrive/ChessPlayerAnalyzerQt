@@ -9,7 +9,7 @@ ApplicationWindow {
     height: 800
     visible: true
     title: "Chess Analyzer"
-    color: "#000000"
+    color: "#0D1117"
 
     property string currentUsername: ""
     property bool isAnalyzing: false
@@ -57,7 +57,7 @@ ApplicationWindow {
         id: mainPageComponent
         Rectangle {
             anchors.fill: parent
-            color: "#000000"
+            color: "#0D1117"
 
             ScrollView {
                 anchors.fill: parent
@@ -68,7 +68,7 @@ ApplicationWindow {
                     id: mainContent
                     width: parent.width
                     height: childrenRect.height
-                    color: "#000000"
+                    color: "#0D1117"
 
                     Column {
                         width: parent.width
@@ -77,8 +77,8 @@ ApplicationWindow {
                         Rectangle {
                             width: parent.width
                             height: 72
-                            color: "#000000"
-                            border.color: "#1f2937"
+                            color: "#0D1117"
+                            border.color: "#21262D"
                             border.width: 1
 
                             Rectangle {
@@ -94,7 +94,7 @@ ApplicationWindow {
                                     Rectangle {
                                         width: 32
                                         height: 32
-                                        color: "#16a34a"
+                                        color: "#17E88D"
                                         radius: 8
 
                                         Text {
@@ -119,7 +119,7 @@ ApplicationWindow {
                         Rectangle {
                             width: parent.width
                             height: childrenRect.height + 96
-                            color: "#000000"
+                            color: "#0D1117"
 
                             Column {
                                 anchors.horizontalCenter: parent.horizontalCenter
@@ -220,8 +220,8 @@ ApplicationWindow {
                                                     Rectangle {
                                                         width: parent.width
                                                         height: 40
-                                                        color: "#374151"
-                                                        border.color: "#4b5563"
+                                                        color: "#21262D"
+                                                        border.color: "#30363D"
                                                         border.width: 1
                                                         radius: 6
 
@@ -256,7 +256,7 @@ ApplicationWindow {
                                                     Rectangle {
                                                         width: parent.width
                                                         height: 40
-                                                        color: isAnalyzing ? "#374151" : "#16a34a"
+                                                        color: isAnalyzing ? "#21262D" : "#17E88D"
                                                         radius: 6
 
                                                         MouseArea {
@@ -302,53 +302,53 @@ ApplicationWindow {
                                     }
                                 }
 
-                                Grid {
+                                GridLayout {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    columns: 4
-                                    columnSpacing: 24
-                                    rowSpacing: 24
                                     width: parent.width
+                                    columns: Math.max(1, Math.min(3, Math.floor(parent.width / 340)))
+                                    columnSpacing: 20
+                                    rowSpacing: 20
 
-                                    FeatureCard {
-                                        iconText: "📊"
-                                        iconColor: "#1e40af"
-                                        iconBgColor: "#1e3a8a"
-                                        title: "Opening Entropy"
-                                        description: "Analyze opening diversity vs ELO consistency"
+                                    DashboardCard {
+                                        header: "Opening Analysis"
+                                        value: "📊"
+                                        subtitle: "Entropy & Diversity Metrics"
+                                        iconName: "📊"
+                                        valueColor: "#17E88D"
                                     }
 
-                                    FeatureCard {
-                                        iconText: "⏰"
-                                        iconColor: "#7c3aed"
-                                        iconBgColor: "#5b21b6"
-                                        title: "Move Timing"
-                                        description: "Detect suspicious timing patterns"
+                                    DashboardCard {
+                                        header: "Timing Patterns"
+                                        value: "⏰"
+                                        subtitle: "Move Time Analysis"
+                                        iconName: "⏰"
+                                        valueColor: "#FF6B6B"
                                     }
 
-                                    FeatureCard {
-                                        iconText: "📈"
-                                        iconColor: "#16a34a"
-                                        iconBgColor: "#15803d"
-                                        title: "Win/Loss Stats"
-                                        description: "Comprehensive game outcome analysis"
+                                    DashboardCard {
+                                        header: "Performance Stats"
+                                        value: "📈"
+                                        subtitle: "Win/Loss Analytics"
+                                        iconName: "📈"
+                                        valueColor: "#17E88D"
                                     }
 
-                                    FeatureCard {
-                                        iconText: "⚡"
-                                        iconColor: "#ea580c"
-                                        iconBgColor: "#c2410c"
-                                        title: "Comeback Analysis"
-                                        description: "Identify dramatic game turnarounds"
+                                    DashboardCard {
+                                        header: "Risk Assessment"
+                                        value: "⚡"
+                                        subtitle: "Anomaly Detection"
+                                        iconName: "⚡"
+                                        valueColor: "#FF6B6B"
                                     }
                                 }
 
                                 Rectangle {
                                     width: parent.width
                                     height: childrenRect.height
-                                    color: "#1f2937"
-                                    border.color: "#374151"
+                                    color: "#0F1A28"
+                                    border.color: "#21262D"
                                     border.width: 1
-                                    radius: 8
+                                    radius: 12
 
                                     Column {
                                         width: parent.width
@@ -368,14 +368,15 @@ ApplicationWindow {
                                                 Text {
                                                     text: "👥"
                                                     font.pixelSize: 20
-                                                    color: "white"
+                                                    color: "#E6EDF3"
                                                 }
 
                                                 Text {
                                                     text: "Analyzed Players"
                                                     font.pixelSize: 18
-                                                    font.bold: true
-                                                    color: "white"
+                                                    font.weight: Font.DemiBold
+                                                    font.family: "Inter, SF Pro Display, sans-serif"
+                                                    color: "#E6EDF3"
                                                 }
                                             }
                                         }
@@ -397,7 +398,7 @@ ApplicationWindow {
                                                     Rectangle {
                                                         width: parent.width
                                                         height: 64
-                                                        color: "#374151"
+                                                        color: "#21262D"
                                                         opacity: 0.5
                                                         radius: 8
 
@@ -415,14 +416,14 @@ ApplicationWindow {
                                                     Rectangle {
                                                         width: parent.width
                                                         height: 64
-                                                        color: "#374151"
-                                                        radius: 8
+                                                        color: "#0F1A28"
+                                                        radius: 12
 
                                                         MouseArea {
                                                             anchors.fill: parent
                                                             hoverEnabled: true
-                                                            onEntered: parent.color = "#4b5563"
-                                                            onExited: parent.color = "#374151"
+                                                            onEntered: parent.color = "#1A2332"
+                                                            onExited: parent.color = "#0F1A28"
                                                             onClicked: {
                                                                 currentUsername = modelData.username
                                                                 stackView.push("ResultsPage.qml", {username: modelData.username})
@@ -438,14 +439,14 @@ ApplicationWindow {
                                                             Rectangle {
                                                                 width: 32
                                                                 height: 32
-                                                                color: "#16a34a"
+                                                                color: "#17E88D"
                                                                 radius: 16
 
                                                                 Text {
                                                                     anchors.centerIn: parent
                                                                     text: "👤"
                                                                     font.pixelSize: 16
-                                                                    color: "white"
+                                                                    color: "#E6EDF3"
                                                                 }
                                                             }
 
@@ -456,14 +457,16 @@ ApplicationWindow {
                                                                 Text {
                                                                     text: modelData.username
                                                                     font.pixelSize: 16
-                                                                    font.bold: true
-                                                                    color: "white"
+                                                                    font.weight: Font.DemiBold
+                                                                    font.family: "Inter, SF Pro Display, sans-serif"
+                                                                    color: "#E6EDF3"
                                                                 }
 
                                                                 Text {
                                                                     text: "Analyzed " + new Date(modelData.analyzed_at || modelData.requested_at).toLocaleDateString()
                                                                     font.pixelSize: 12
-                                                                    color: "#9ca3af"
+                                                                    font.family: "Inter, SF Pro Display, sans-serif"
+                                                                    color: "#8B949E"
                                                                 }
                                                             }
                                                         }
@@ -479,7 +482,8 @@ ApplicationWindow {
                                                         anchors.horizontalCenter: parent.horizontalCenter
                                                         text: "No players analyzed yet\nStart analyzing a player to see results here"
                                                         font.pixelSize: 14
-                                                        color: "#6b7280"
+                                                        font.family: "Inter, SF Pro Display, sans-serif"
+                                                        color: "#8B949E"
                                                         horizontalAlignment: Text.AlignHCenter
                                                     }
 
@@ -487,14 +491,14 @@ ApplicationWindow {
                                                         anchors.horizontalCenter: parent.horizontalCenter
                                                         width: 200
                                                         height: 40
-                                                        color: "#7c3aed"
+                                                        color: "#7C3AED"
                                                         radius: 6
 
                                                         MouseArea {
                                                             anchors.fill: parent
                                                             hoverEnabled: true
-                                                            onEntered: parent.color = "#6d28d9"
-                                                            onExited: parent.color = "#7c3aed"
+                                                            onEntered: parent.color = "#6D28D9"
+                                                            onExited: parent.color = "#7C3AED"
                                                             onClicked: {
                                                                 stackView.push("ResultsPage.qml", {
                                                                     username: "sample_player",
@@ -507,8 +511,9 @@ ApplicationWindow {
                                                             anchors.centerIn: parent
                                                             text: "🎯 View Sample Results"
                                                             font.pixelSize: 14
-                                                            font.bold: true
-                                                            color: "white"
+                                                            font.weight: Font.DemiBold
+                                                            font.family: "Inter, SF Pro Display, sans-serif"
+                                                            color: "#E6EDF3"
                                                         }
                                                     }
                                                 }
