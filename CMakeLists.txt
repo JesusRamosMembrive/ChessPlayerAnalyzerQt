@@ -20,6 +20,7 @@ qt_add_qml_module(appChessPlayerAnalyzerQt
         QML_FILES FeatureCard.qml
         QML_FILES MetricCard.qml
         QML_FILES ResultsPage.qml
+        QML_FILES Card.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
