@@ -393,11 +393,11 @@ Rectangle {
                                 width: parent.width
                                 columns: 2
                                 columnSpacing: 32
-                                rowSpacing: 16
+                                rowSpacing: 24
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     MetricCard {
                                         label: "Average Centipawn Loss (ACPL)"
@@ -414,7 +414,7 @@ Rectangle {
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     MetricCard {
                                         label: "Engine Match Rate"
@@ -712,15 +712,15 @@ Rectangle {
                                 width: parent.width
                                 columns: 2
                                 columnSpacing: 32
-                                rowSpacing: 16
+                                rowSpacing: 24
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     Rectangle {
                                         width: parent.width
-                                        height: 80
+                                        height: 100
                                         color: "#374151"
                                         border.color: "#4b5563"
                                         border.width: 1
@@ -767,11 +767,11 @@ Rectangle {
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     Rectangle {
                                         width: parent.width
-                                        height: 80
+                                        height: 100
                                         color: "#374151"
                                         border.color: "#4b5563"
                                         border.width: 1
@@ -862,11 +862,11 @@ Rectangle {
                                 width: parent.width
                                 columns: 2
                                 columnSpacing: 32
-                                rowSpacing: 16
+                                rowSpacing: 24
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     MetricCard {
                                         label: "Mean Entropy"
@@ -883,7 +883,7 @@ Rectangle {
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     MetricCard {
                                         label: "Novelty Depth"
@@ -944,11 +944,11 @@ Rectangle {
                                 width: parent.width
                                 columns: 2
                                 columnSpacing: 32
-                                rowSpacing: 16
+                                rowSpacing: 24
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     MetricCard {
                                         label: "Opening ACPL"
@@ -965,7 +965,7 @@ Rectangle {
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     MetricCard {
                                         label: "Middlegame ACPL"
@@ -1026,11 +1026,11 @@ Rectangle {
                                 width: parent.width
                                 columns: 2
                                 columnSpacing: 32
-                                rowSpacing: 16
+                                rowSpacing: 24
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     MetricCard {
                                         label: "Mean Move Time"
@@ -1047,7 +1047,7 @@ Rectangle {
 
                                 Column {
                                     width: (parent.width - 32) / 2
-                                    spacing: 16
+                                    spacing: 20
 
                                     MetricCard {
                                         label: "Time Variance"

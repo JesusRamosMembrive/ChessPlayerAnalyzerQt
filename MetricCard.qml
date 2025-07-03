@@ -7,7 +7,7 @@ Rectangle {
     property string tooltipText: ""
 
     width: parent.width
-    height: 60
+    height: 80
     color: "transparent"
 
     Row {
