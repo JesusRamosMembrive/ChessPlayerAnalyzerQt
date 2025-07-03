@@ -11,7 +11,19 @@ ApplicationWindow {
     title: "Chess Analyzer"
     color: "#000000"
 
-    ScrollView {
+    StackView {
+        id: stackView
+        anchors.fill: parent
+        initialItem: mainPageComponent
+    }
+
+    Component {
+        id: mainPageComponent
+        Rectangle {
+            anchors.fill: parent
+            color: "#000000"
+
+            ScrollView {
         anchors.fill: parent
         contentWidth: window.width
         contentHeight: mainContent.height
@@ -345,6 +357,31 @@ ApplicationWindow {
                                                 }
                                             }
                                         }
+
+                                        Rectangle {
+                                            width: parent.width
+                                            height: 40
+                                            color: "#16a34a"
+                                            radius: 6
+
+                                            MouseArea {
+                                                anchors.fill: parent
+                                                hoverEnabled: true
+                                                onEntered: parent.color = "#15803d"
+                                                onExited: parent.color = "#16a34a"
+                                                onClicked: {
+                                                    stackView.push("ResultsPage.qml")
+                                                }
+                                            }
+
+                                            Text {
+                                                anchors.centerIn: parent
+                                                text: "View Sample Results"
+                                                font.pixelSize: 14
+                                                font.bold: true
+                                                color: "white"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -352,6 +389,8 @@ ApplicationWindow {
                     }
                 }
             }
+        }
+    }
         }
     }
 }

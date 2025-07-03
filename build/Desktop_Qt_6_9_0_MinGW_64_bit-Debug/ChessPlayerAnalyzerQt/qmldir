@@ -3,4 +3,6 @@ typeinfo appChessPlayerAnalyzerQt.qmltypes
 prefer :/qt/qml/ChessPlayerAnalyzerQt/
 Main 1.0 Main.qml
 FeatureCard 1.0 FeatureCard.qml
+MetricCard 1.0 MetricCard.qml
+ResultsPage 1.0 ResultsPage.qml
 

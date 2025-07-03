@@ -1,0 +1,196 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-ab7a65460a784f64c2d6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ChessPlayerAnalyzerQt",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "all_aotstats::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_aotstats-Debug-835b5550b10ceae91993.json",
+					"name" : "all_aotstats",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint-Debug-fe2cccff4d04c94a0900.json",
+					"name" : "all_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_json-Debug-c5d2f7ef9578408f8c2f.json",
+					"name" : "all_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_module-Debug-a371d98fe7e32b9ae9d0.json",
+					"name" : "all_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmltyperegistrations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmltyperegistrations-Debug-bdee84e931ea89ffe8d8.json",
+					"name" : "all_qmltyperegistrations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt-Debug-e597de32e125dcbacc30.json",
+					"name" : "appChessPlayerAnalyzerQt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_autogen-Debug-5af608ec653ec8baac81.json",
+					"name" : "appChessPlayerAnalyzerQt_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_autogen_timestamp_deps-Debug-e1c3aeb58809a268cb78.json",
+					"name" : "appChessPlayerAnalyzerQt_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_copy_qml::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_copy_qml-Debug-482c1a5417f799a22d3c.json",
+					"name" : "appChessPlayerAnalyzerQt_copy_qml",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_copy_res::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_copy_res-Debug-b944762d0ebc9a3f38ec.json",
+					"name" : "appChessPlayerAnalyzerQt_copy_res",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_qmlimportscan-Debug-245d32137472a25ded60.json",
+					"name" : "appChessPlayerAnalyzerQt_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_qmllint-Debug-f40fa7c330dfc3c45db1.json",
+					"name" : "appChessPlayerAnalyzerQt_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_qmllint_json-Debug-4b58b5aa78ea5c76a6aa.json",
+					"name" : "appChessPlayerAnalyzerQt_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_qmllint_module-Debug-73eac0fedce5882ca691.json",
+					"name" : "appChessPlayerAnalyzerQt_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appChessPlayerAnalyzerQt_qmltyperegistration::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_qmltyperegistration-Debug-cd151837969c2da66551.json",
+					"name" : "appChessPlayerAnalyzerQt_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "module_appChessPlayerAnalyzerQt_aotstats_target::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-module_appChessPlayerAnalyzerQt_aotstats_target-Debug-6146b14a18888ce575e5.json",
+					"name" : "module_appChessPlayerAnalyzerQt_aotstats_target",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
+		"source" : "H:/Git_Overture/ChessPlayerAnalyzerQt"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

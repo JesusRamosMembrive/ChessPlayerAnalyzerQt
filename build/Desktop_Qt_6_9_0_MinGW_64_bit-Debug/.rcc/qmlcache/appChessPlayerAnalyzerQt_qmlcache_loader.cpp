@@ -19,6 +19,20 @@ namespace _qt_qml_ChessPlayerAnalyzerQt_FeatureCard_qml {
         reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
     };
 }
+namespace _qt_qml_ChessPlayerAnalyzerQt_MetricCard_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
+namespace _qt_qml_ChessPlayerAnalyzerQt_ResultsPage_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
 
 }
 namespace {
@@ -35,6 +49,8 @@ Q_GLOBAL_STATIC(Registry, unitRegistry)
 Registry::Registry() {
     resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/Main.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_Main_qml::unit);
     resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/FeatureCard.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_FeatureCard_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/MetricCard.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_MetricCard_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/ResultsPage.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_ResultsPage_qml::unit);
     QQmlPrivate::RegisterQmlUnitCacheHook registration;
     registration.structVersion = 0;
     registration.lookupCachedQmlUnit = &lookupCachedUnit;
