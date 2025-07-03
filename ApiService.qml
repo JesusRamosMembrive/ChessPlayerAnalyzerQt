@@ -28,7 +28,7 @@ QtObject {
                 }
             }
         }
-        xhr.open("GET", baseUrl + "/api/players")
+        xhr.open("GET", baseUrl + "/players")
         xhr.send()
     }
     
@@ -48,7 +48,7 @@ QtObject {
                 }
             }
         }
-        xhr.open("GET", baseUrl + "/api/metrics/player/" + encodeURIComponent(username))
+        xhr.open("GET", baseUrl + "/metrics/player/" + encodeURIComponent(username))
         xhr.send()
     }
     
@@ -68,7 +68,7 @@ QtObject {
                 }
             }
         }
-        xhr.open("POST", baseUrl + "/api/analyze")
+        xhr.open("POST", baseUrl + "/analyze")
         xhr.setRequestHeader("Content-Type", "application/json")
         xhr.send(JSON.stringify({username: username}))
     }

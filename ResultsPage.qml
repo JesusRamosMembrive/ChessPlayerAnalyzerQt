@@ -8,6 +8,12 @@ Page {
         color: "#000000"
     }
 
+    property string username: ""
+    property var playerMetrics: null
+    property bool isLoading: false
+    property string errorMessage: ""
+    property bool useFakeData: false
+
     property var dummyMetrics: {
         "username": "magnus_carlsen",
         "analyzed_at": "2024-07-02T21:30:00Z",
@@ -531,6 +537,29 @@ Page {
                     value: playerMetrics ? playerMetrics.risk.suspicious_games_count.toString() : "N/A"
                 }
             }
+        }
+    }
+
+    ApiService {
+        id: apiService
+        
+        onMetricsLoaded: function(metrics) {
+            isLoading = false
+            playerMetrics = metrics
+        }
+        
+        onMetricsError: function(error) {
+            isLoading = false
+            errorMessage = error
+        }
+    }
+
+    Component.onCompleted: {
+        if (useFakeData) {
+            playerMetrics = dummyMetrics
+        } else if (username.length > 0) {
+            isLoading = true
+            apiService.fetchPlayerMetrics(username)
         }
     }
 }

@@ -470,13 +470,47 @@ ApplicationWindow {
                                                     }
                                                 }
 
-                                                Text {
+                                                Column {
                                                     anchors.horizontalCenter: parent.horizontalCenter
-                                                    text: "No players analyzed yet\nStart analyzing a player to see results here"
-                                                    font.pixelSize: 14
-                                                    color: "#6b7280"
-                                                    horizontalAlignment: Text.AlignHCenter
+                                                    spacing: 16
                                                     visible: !isLoadingPlayers && analyzedPlayers.length === 0
+
+                                                    Text {
+                                                        anchors.horizontalCenter: parent.horizontalCenter
+                                                        text: "No players analyzed yet\nStart analyzing a player to see results here"
+                                                        font.pixelSize: 14
+                                                        color: "#6b7280"
+                                                        horizontalAlignment: Text.AlignHCenter
+                                                    }
+
+                                                    Rectangle {
+                                                        anchors.horizontalCenter: parent.horizontalCenter
+                                                        width: 200
+                                                        height: 40
+                                                        color: "#7c3aed"
+                                                        radius: 6
+
+                                                        MouseArea {
+                                                            anchors.fill: parent
+                                                            hoverEnabled: true
+                                                            onEntered: parent.color = "#6d28d9"
+                                                            onExited: parent.color = "#7c3aed"
+                                                            onClicked: {
+                                                                stackView.push("ResultsPage.qml", {
+                                                                    username: "sample_player",
+                                                                    useFakeData: true
+                                                                })
+                                                            }
+                                                        }
+
+                                                        Text {
+                                                            anchors.centerIn: parent
+                                                            text: "🎯 View Sample Results"
+                                                            font.pixelSize: 14
+                                                            font.bold: true
+                                                            color: "white"
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
