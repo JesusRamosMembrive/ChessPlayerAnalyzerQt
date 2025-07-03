@@ -96,7 +96,7 @@ Page {
         ColumnLayout {
             id: rootLayout
             width: parent.width
-            spacing: 16
+            spacing: 24
 
             // Header with back button
             RowLayout {
@@ -199,7 +199,7 @@ Page {
             /* ───────── KPIs superiores ───────── */
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 12
+                spacing: 20
                 
                 Card { 
                     title: qsTr("Puntuación de Riesgo")
@@ -229,8 +229,8 @@ Page {
             GridLayout {
                 id: qualityGrid
                 columns: 2
-                columnSpacing: 12
-                rowSpacing: 12
+                columnSpacing: 20
+                rowSpacing: 20
                 Layout.fillWidth: true
 
                 Card { 
@@ -274,7 +274,7 @@ Page {
             }
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 12
+                spacing: 20
                 
                 Card { 
                     title: qsTr("ROI Medio")
@@ -313,8 +313,8 @@ Page {
             }
             GridLayout {
                 columns: 2
-                columnSpacing: 12
-                rowSpacing: 12
+                columnSpacing: 20
+                rowSpacing: 20
                 Layout.fillWidth: true
 
                 Card { 
@@ -344,8 +344,8 @@ Page {
             }
             GridLayout {
                 columns: 2
-                columnSpacing: 12
-                rowSpacing: 12
+                columnSpacing: 20
+                rowSpacing: 20
                 Layout.fillWidth: true
 
                 Card { 
@@ -375,8 +375,8 @@ Page {
             }
             GridLayout {
                 columns: 2
-                columnSpacing: 12
-                rowSpacing: 12
+                columnSpacing: 20
+                rowSpacing: 20
                 Layout.fillWidth: true
 
                 Card { 
@@ -406,7 +406,7 @@ Page {
             }
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 12
+                spacing: 20
                 
                 Card { 
                     title: qsTr("Puntuación Final")

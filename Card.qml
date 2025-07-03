@@ -7,21 +7,43 @@ Frame {
     property alias value:  valueLabel.text
     property alias subtitle: subtitleLabel.text    // opcional
 
-    padding: 12
+    padding: 20
     background: Rectangle {           // mismo estilo para todos
         color: "#111d30"
         radius: 8
         border.color: "#223347"
+        border.width: 1
     }
 
     Column {
-        spacing: 4
+        spacing: 8
         width: parent.width
-        Text { id: titleLabel;   color: "#8fa3bc"; font.pixelSize: 13 }
-        Text { id: valueLabel;   color: "white";  font.pixelSize: 26; font.bold: true }
-        Text { id: subtitleLabel; color: "#f39c12"; font.pixelSize: 11; visible: subtitle !== "" }
+        Text { 
+            id: titleLabel
+            color: "#8fa3bc"
+            font.pixelSize: 16
+            font.weight: Font.Medium
+            wrapMode: Text.WordWrap
+            width: parent.width
+        }
+        Text { 
+            id: valueLabel
+            color: "white"
+            font.pixelSize: 32
+            font.bold: true
+            wrapMode: Text.WordWrap
+            width: parent.width
+        }
+        Text { 
+            id: subtitleLabel
+            color: "#f39c12"
+            font.pixelSize: 14
+            visible: subtitle !== ""
+            wrapMode: Text.WordWrap
+            width: parent.width
+        }
     }
 
-    implicitWidth: 140               // valores mínimos para layout
-    implicitHeight: 80
+    implicitWidth: 220               // valores mínimos para layout más grandes
+    implicitHeight: 120
 }
