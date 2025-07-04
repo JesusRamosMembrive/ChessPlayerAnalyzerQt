@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.loadFromModule("ChessPlayerAnalyzerQt", "Main");
+    engine.loadFromModule("ChessAnalyzer", "Main");
 
     return app.exec();
 }

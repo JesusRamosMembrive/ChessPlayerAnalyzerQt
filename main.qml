@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import "qml/layouts"
+import ChessAnalyzer 1.0
 
 RootLayout {
     id: app

@@ -14,7 +14,7 @@ qt_add_executable(appChessPlayerAnalyzerQt
 )
 
 qt_add_qml_module(appChessPlayerAnalyzerQt
-    URI ChessPlayerAnalyzerQt
+    URI ChessAnalyzer
     VERSION 1.0
     QML_FILES
         Main.qml
