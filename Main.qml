@@ -35,5 +35,10 @@ RootLayout {
         function onExportRequested() {
             console.log("Export requested")
         }
+
+        function onSampleResultsRequested() {
+            console.log("Sample results requested")
+            app.navigateTo("ResultsPage")
+        }
     }
 }

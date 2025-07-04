@@ -9,6 +9,7 @@ ScrollView {
 
     signal analysisRequested(string username)
     signal playerClicked(string username)
+    signal sampleResultsRequested()
 
     Rectangle {
         color: "#000000"
@@ -189,9 +190,7 @@ ScrollView {
                                     }
 
                                     onClicked: {
-                                        if (root.parentWindow) {
-                                            root.parentWindow.navigateTo("ResultsPage")
-                                        }
+                                        root.sampleResultsRequested()
                                     }
                                 }
                             }
