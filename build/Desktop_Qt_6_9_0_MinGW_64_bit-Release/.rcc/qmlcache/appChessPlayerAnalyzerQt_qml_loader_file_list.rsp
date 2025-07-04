@@ -3,7 +3,8 @@ H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Releas
 --resource
 H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.qt/rcc/appChessPlayerAnalyzerQt_raw_qml_0.qrc
 /qt/qml/ChessPlayerAnalyzerQt/Main.qml
-/qt/qml/ChessPlayerAnalyzerQt/FeatureCard.qml
-/qt/qml/ChessPlayerAnalyzerQt/MetricCard.qml
+/qt/qml/ChessPlayerAnalyzerQt/MetricDisplay.qml
+/qt/qml/ChessPlayerAnalyzerQt/PlayersList.qml
+/qt/qml/ChessPlayerAnalyzerQt/RootLayout.qml
+/qt/qml/ChessPlayerAnalyzerQt/HomePage.qml
 /qt/qml/ChessPlayerAnalyzerQt/ResultsPage.qml
-/qt/qml/ChessPlayerAnalyzerQt/Card.qml

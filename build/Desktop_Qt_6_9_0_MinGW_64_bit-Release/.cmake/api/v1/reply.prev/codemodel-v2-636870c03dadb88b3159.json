@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Release-5594607f23e8dff7bfb9.json",
+					"jsonFile" : "directory-.-Release-4f7e0409e35202af4b36.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -70,7 +70,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "all_aotstats::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-all_aotstats-Release-e4beea4a26708f902938.json",
+					"jsonFile" : "target-all_aotstats-Release-3a18ad3fd1a10e60f75e.json",
 					"name" : "all_aotstats",
 					"projectIndex" : 0
 				},
@@ -105,7 +105,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "appChessPlayerAnalyzerQt::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-appChessPlayerAnalyzerQt-Release-3053815a39d9c57fe371.json",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt-Release-c017ce5fcdac03eb0537.json",
 					"name" : "appChessPlayerAnalyzerQt",
 					"projectIndex" : 0
 				},
@@ -119,7 +119,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "appChessPlayerAnalyzerQt_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-appChessPlayerAnalyzerQt_autogen_timestamp_deps-Release-e1c3aeb58809a268cb78.json",
+					"jsonFile" : "target-appChessPlayerAnalyzerQt_autogen_timestamp_deps-Release-7a84238d376b41346f09.json",
 					"name" : "appChessPlayerAnalyzerQt_autogen_timestamp_deps",
 					"projectIndex" : 0
 				},
@@ -175,7 +175,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "module_appChessPlayerAnalyzerQt_aotstats_target::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-module_appChessPlayerAnalyzerQt_aotstats_target-Release-66a9c42e1c56648b8ae2.json",
+					"jsonFile" : "target-module_appChessPlayerAnalyzerQt_aotstats_target-Release-b2d2036b1b4bc4338d95.json",
 					"name" : "module_appChessPlayerAnalyzerQt_aotstats_target",
 					"projectIndex" : 0
 				}

@@ -12,14 +12,28 @@ namespace _qt_qml_ChessPlayerAnalyzerQt_Main_qml {
         reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
     };
 }
-namespace _qt_qml_ChessPlayerAnalyzerQt_FeatureCard_qml { 
+namespace _qt_qml_ChessPlayerAnalyzerQt_MetricDisplay_qml { 
     extern const unsigned char qmlData[];
     extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
     const QQmlPrivate::CachedQmlUnit unit = {
         reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
     };
 }
-namespace _qt_qml_ChessPlayerAnalyzerQt_MetricCard_qml { 
+namespace _qt_qml_ChessPlayerAnalyzerQt_PlayersList_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
+namespace _qt_qml_ChessPlayerAnalyzerQt_RootLayout_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
+namespace _qt_qml_ChessPlayerAnalyzerQt_HomePage_qml { 
     extern const unsigned char qmlData[];
     extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
     const QQmlPrivate::CachedQmlUnit unit = {
@@ -27,13 +41,6 @@ namespace _qt_qml_ChessPlayerAnalyzerQt_MetricCard_qml {
     };
 }
 namespace _qt_qml_ChessPlayerAnalyzerQt_ResultsPage_qml { 
-    extern const unsigned char qmlData[];
-    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
-    const QQmlPrivate::CachedQmlUnit unit = {
-        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
-    };
-}
-namespace _qt_qml_ChessPlayerAnalyzerQt_Card_qml { 
     extern const unsigned char qmlData[];
     extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
     const QQmlPrivate::CachedQmlUnit unit = {
@@ -55,10 +62,11 @@ Q_GLOBAL_STATIC(Registry, unitRegistry)
 
 Registry::Registry() {
     resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/Main.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_Main_qml::unit);
-    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/FeatureCard.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_FeatureCard_qml::unit);
-    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/MetricCard.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_MetricCard_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/MetricDisplay.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_MetricDisplay_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/PlayersList.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_PlayersList_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/RootLayout.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_RootLayout_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/HomePage.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_HomePage_qml::unit);
     resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/ResultsPage.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_ResultsPage_qml::unit);
-    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/ChessPlayerAnalyzerQt/Card.qml"), &QmlCacheGeneratedCode::_qt_qml_ChessPlayerAnalyzerQt_Card_qml::unit);
     QQmlPrivate::RegisterQmlUnitCacheHook registration;
     registration.structVersion = 0;
     registration.lookupCachedQmlUnit = &lookupCachedUnit;

@@ -104,13 +104,7 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_Card_qml.cpp.rule",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_FeatureCard_qml.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_HomePage_qml.cpp.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -122,13 +116,19 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_MetricCard_qml.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_MetricDisplay_qml.cpp.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_ResultsPage_qml.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_PlayersList_qml.cpp.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_RootLayout_qml.cpp.rule",
 			"sourceGroupIndex" : 1
 		},
 		{

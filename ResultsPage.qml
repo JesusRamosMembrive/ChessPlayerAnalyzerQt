@@ -1,448 +1,622 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import "../components"
 
-Page {
-    id: resultsPage
-    background: Rectangle {
-        color: "#000000"
-    }
+ScrollView {
+    id: root
 
-    property var dummyMetrics: {
-        "username": "magnus_carlsen",
-        "analyzed_at": "2024-07-02T21:30:00Z",
-        "games_analyzed": 247,
-        "first_game_date": "2024-01-15T10:00:00Z",
-        "last_game_date": "2024-06-30T18:45:00Z",
-        "avg_acpl": 18.5,
-        "std_acpl": 12.3,
-        "avg_match_rate": 0.68,
-        "avg_ipr": 2847,
-        "step_function_detected": false,
-        "step_function_magnitude": 45,
-        "roi_mean": 2.34,
-        "roi_max": 4.12,
-        "roi_std": 0.87,
-        "longest_streak": 12,
-        "selectivity_score": 73.2,
-        "risk": {
-            "risk_score": 28,
-            "confidence_level": 0.85,
-            "suspicious_games_count": 3,
-            "risk_factors": {
-                "high_match_rate": 0.15,
-                "low_acpl_variance": 0.08,
-                "timing_patterns": 0.05
-            }
-        },
-        "opening_patterns": {
-            "mean_entropy": 3.42,
-            "novelty_depth": 8.7,
-            "opening_breadth": 23,
-            "second_choice_rate": 0.31
-        },
-        "phase_quality": {
-            "opening_acpl": 15.2,
-            "middlegame_acpl": 21.8,
-            "endgame_acpl": 18.9,
-            "blunder_rate": 0.04
-        },
-        "time_management": {
-            "mean_move_time": 12.4,
-            "time_variance": 145.6,
-            "uniformity_score": -0.23,
-            "lag_spike_count": 7
-        },
-        "clutch_accuracy": {
-            "avg_clutch_diff": -2.1,
-            "clutch_games_pct": 0.18
-        },
-        "benchmark": {
-            "percentile_acpl": 88,
-            "percentile_entropy": 65
-        },
-        "tactical": {
-            "precision_burst_count": 4,
-            "second_choice_rate": 0.28
-        },
-        "endgame": {
-            "conversion_efficiency": 87,
-            "tb_match_rate": 0.92,
-            "dtz_deviation": 1.3
-        },
-        "performance": {
-            "trend_acpl": -15.2,
-            "trend_match_rate": 0.025
-        }
-    }
+    property var parentWindow
+    property string username: ""
+    property var metrics: null
+    property bool loading: true
+    property string error: ""
+
+    signal backRequested()
+    signal shareRequested()
+    signal exportRequested()
 
     function formatNumber(num, decimals) {
-        if (decimals === undefined) decimals = 2;
-        if (num === null || num === undefined) return "N/A";
-        return num.toFixed(decimals);
+        if (num === null || num === undefined) return "N/A"
+        return Number(num).toFixed(decimals || 2)
     }
 
     function getRiskColor(score) {
-        if (score > 75) return "#f87171";
-        if (score > 50) return "#fb923c";
-        if (score > 25) return "#fbbf24";
-        return "#4ade80";
+        if (score > 75) return "#f87171"
+        if (score > 50) return "#fb923c"
+        if (score > 25) return "#fbbf24"
+        return "#4ade80"
     }
 
-    ScrollView {
-        anchors.fill: parent
-        contentWidth: availableWidth
+    Rectangle {
+        color: "#000000"
+        implicitWidth: root.width
+        implicitHeight: mainColumn.implicitHeight + 40
 
         ColumnLayout {
-            id: rootLayout
-            width: parent.width
-            spacing: 40
+            id: mainColumn
+            anchors.fill: parent
+            anchors.margins: 0
+            spacing: 0
 
-            // Header with back button
-            RowLayout {
+            Rectangle {
+                id: header
                 Layout.fillWidth: true
-                Layout.preferredHeight: 72
+                Layout.preferredHeight: 80
+                color: "transparent"
+                border.color: "#1f2937"
+                border.width: 1
 
-                Rectangle {
-                    Layout.preferredWidth: 40
-                    Layout.preferredHeight: 40
-                    color: "#374151"
-                    radius: 6
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.margins: 20
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            if (resultsPage.StackView.view) {
-                                resultsPage.StackView.view.pop();
+                    RowLayout {
+                        spacing: 15
+
+                        Button {
+                            text: "← Back"
+
+                            background: Rectangle {
+                                color: "transparent"
+                                radius: 4
+                            }
+
+                            contentItem: Text {
+                                text: parent.text
+                                color: "white"
+                                font.pixelSize: 14
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            onClicked: root.backRequested()
+                        }
+
+                        RowLayout {
+                            spacing: 12
+
+                            Rectangle {
+                                width: 40
+                                height: 40
+                                color: "#16a34a"
+                                radius: 20
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: "👤"
+                                    font.pixelSize: 16
+                                }
+                            }
+
+                            ColumnLayout {
+                                spacing: 2
+
+                                Text {
+                                    text: root.username
+                                    color: "white"
+                                    font.pixelSize: 20
+                                    font.weight: Font.Bold
+                                }
+
+                                Text {
+                                    text: root.metrics ? "Analysis completed on " + new Date(root.metrics.analyzed_at).toLocaleDateString() : ""
+                                    color: "#9ca3af"
+                                    font.pixelSize: 12
+                                }
                             }
                         }
                     }
 
-                    Text {
-                        anchors.centerIn: parent
-                        text: "←"
-                        font.pixelSize: 20
-                        color: "white"
+                    Item { Layout.fillWidth: true }
+
+                    RowLayout {
+                        spacing: 8
+
+                        Button {
+                            text: "📤 Share"
+
+                            background: Rectangle {
+                                color: "transparent"
+                                border.color: "#4b5563"
+                                border.width: 1
+                                radius: 4
+                            }
+
+                            contentItem: Text {
+                                text: parent.text
+                                color: "white"
+                                font.pixelSize: 12
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            onClicked: root.shareRequested()
+                        }
+
+                        Button {
+                            text: "💾 Export"
+
+                            background: Rectangle {
+                                color: "transparent"
+                                border.color: "#4b5563"
+                                border.width: 1
+                                radius: 4
+                            }
+
+                            contentItem: Text {
+                                text: parent.text
+                                color: "white"
+                                font.pixelSize: 12
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            onClicked: root.exportRequested()
+                        }
+                    }
+                }
+            }
+
+            ColumnLayout {
+                Layout.fillWidth: true
+                Layout.margins: 20
+                spacing: 30
+
+                Loader {
+                    Layout.fillWidth: true
+
+                    sourceComponent: {
+                        if (root.loading) {
+                            return loadingComponent
+                        } else if (root.error !== "") {
+                            return errorComponent
+                        } else if (!root.metrics) {
+                            return noDataComponent
+                        } else {
+                            return contentComponent
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Component {
+        id: loadingComponent
+
+        ColumnLayout {
+            Layout.fillWidth: true
+            spacing: 20
+
+            Text {
+                text: "Loading analysis results..."
+                color: "white"
+                font.pixelSize: 18
+                Layout.alignment: Qt.AlignHCenter
+            }
+
+            GridLayout {
+                columns: 4
+                columnSpacing: 20
+                rowSpacing: 20
+                Layout.fillWidth: true
+
+                Repeater {
+                    model: 4
+
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 120
+                        color: "#1f2937"
+                        radius: 8
+                        opacity: 0.5
+                    }
+                }
+            }
+        }
+    }
+
+    Component {
+        id: errorComponent
+
+        ColumnLayout {
+            Layout.fillWidth: true
+            spacing: 20
+
+            Text {
+                text: "⚠️"
+                font.pixelSize: 64
+                color: "#ef4444"
+                Layout.alignment: Qt.AlignHCenter
+            }
+
+            Text {
+                text: "Error loading analysis data"
+                color: "#ef4444"
+                font.pixelSize: 24
+                font.weight: Font.Bold
+                Layout.alignment: Qt.AlignHCenter
+            }
+
+            Text {
+                text: root.error
+                color: "#9ca3af"
+                font.pixelSize: 16
+                Layout.alignment: Qt.AlignHCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+                Layout.maximumWidth: 400
+            }
+        }
+    }
+
+    Component {
+        id: noDataComponent
+
+        ColumnLayout {
+            Layout.fillWidth: true
+            spacing: 20
+
+            Text {
+                text: "No analysis data available for this player"
+                color: "white"
+                font.pixelSize: 24
+                font.weight: Font.Bold
+                Layout.alignment: Qt.AlignHCenter
+            }
+        }
+    }
+
+    Component {
+        id: contentComponent
+
+        ColumnLayout {
+            spacing: 30
+
+            GridLayout {
+                columns: 4
+                columnSpacing: 20
+                rowSpacing: 20
+                Layout.fillWidth: true
+
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 120
+                    color: "#1f2937"
+                    border.color: "#374151"
+                    border.width: 1
+                    radius: 8
+
+                    ColumnLayout {
+                        anchors.fill: parent
+                        anchors.margins: 15
+                        spacing: 8
+
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            Text {
+                                text: "Risk Score"
+                                color: "#9ca3af"
+                                font.pixelSize: 12
+                                font.weight: Font.Medium
+                            }
+
+                            Item { Layout.fillWidth: true }
+
+                            Text {
+                                text: "🛡️"
+                                font.pixelSize: 16
+                                color: root.getRiskColor(root.metrics ? root.metrics.risk.risk_score : 0)
+                            }
+                        }
+
+                        Text {
+                            text: root.formatNumber(root.metrics ? root.metrics.risk.risk_score : 0, 0) + "/100"
+                            color: root.getRiskColor(root.metrics ? root.metrics.risk.risk_score : 0)
+                            font.pixelSize: 32
+                            font.weight: Font.Bold
+                        }
+
+                        Text {
+                            text: "Overall suspicion assessment"
+                            color: "#6b7280"
+                            font.pixelSize: 12
+                        }
                     }
                 }
 
                 Rectangle {
-                    Layout.preferredWidth: 40
-                    Layout.preferredHeight: 40
-                    color: "#16a34a"
-                    radius: 20
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 120
+                    color: "#1f2937"
+                    border.color: "#374151"
+                    border.width: 1
+                    radius: 8
 
-                    Text {
-                        anchors.centerIn: parent
-                        text: "👤"
-                        font.pixelSize: 20
-                        color: "white"
-                    }
-                }
+                    ColumnLayout {
+                        anchors.fill: parent
+                        anchors.margins: 15
+                        spacing: 8
 
-                ColumnLayout {
-                    spacing: 2
+                        RowLayout {
+                            Layout.fillWidth: true
 
-                    Text {
-                        text: dummyMetrics.username
-                        font.pixelSize: 20
-                        font.bold: true
-                        color: "white"
-                    }
+                            Text {
+                                text: "Games Analyzed"
+                                color: "#9ca3af"
+                                font.pixelSize: 12
+                                font.weight: Font.Medium
+                            }
 
-                    Text {
-                        text: qsTr("Analysis completed ") + new Date(dummyMetrics.analyzed_at).toLocaleDateString()
-                        font.pixelSize: 14
-                        color: "#9ca3af"
-                    }
-                }
+                            Item { Layout.fillWidth: true }
 
-                Item { Layout.fillWidth: true } // Spacer
-
-                RowLayout {
-                    spacing: 12
-
-                    Rectangle {
-                        Layout.preferredWidth: 100
-                        Layout.preferredHeight: 32
-                        color: "transparent"
-                        border.color: "#374151"
-                        border.width: 1
-                        radius: 6
-
-                        Text {
-                            anchors.centerIn: parent
-                            text: qsTr("📤 Share")
-                            font.pixelSize: 12
-                            color: "white"
+                            Text {
+                                text: "📊"
+                                font.pixelSize: 16
+                                color: "#60a5fa"
+                            }
                         }
-                    }
-
-                    Rectangle {
-                        Layout.preferredWidth: 100
-                        Layout.preferredHeight: 32
-                        color: "transparent"
-                        border.color: "#374151"
-                        border.width: 1
-                        radius: 6
 
                         Text {
-                            anchors.centerIn: parent
-                            text: qsTr("💾 Export")
+                            text: root.metrics ? root.metrics.games_analyzed.toString() : "0"
+                            color: "#4ade80"
+                            font.pixelSize: 32
+                            font.weight: Font.Bold
+                        }
+
+                        Text {
+                            text: root.metrics ?
+                                  "From " + new Date(root.metrics.first_game_date).toLocaleDateString() +
+                                  " to " + new Date(root.metrics.last_game_date).toLocaleDateString() : ""
+                            color: "#6b7280"
                             font.pixelSize: 12
-                            color: "white"
+                            wrapMode: Text.WordWrap
                         }
                     }
                 }
-            }
 
-            /* ───────── KPIs superiores ───────── */
-            RowLayout {
-                Layout.fillWidth: true
-                spacing: 32
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 120
+                    color: "#1f2937"
+                    border.color: "#374151"
+                    border.width: 1
+                    radius: 8
 
-                Card {
-                    title: qsTr("Puntuación de Riesgo")
-                    value: formatNumber(dummyMetrics.risk.risk_score, 0) + "/100"
-                }
-                Card {
-                    title: qsTr("Partidas Analizadas")
-                    value: dummyMetrics.games_analyzed.toString()
-                }
-                Card {
-                    title: qsTr("Rendimiento Intrínseco")
-                    value: formatNumber(dummyMetrics.avg_ipr, 0)
-                }
-                Card {
-                    title: qsTr("Mejora Súbita")
-                    value: dummyMetrics.step_function_detected ? qsTr("Detectada") : qsTr("No Detectada")
-                }
-            }
+                    ColumnLayout {
+                        anchors.fill: parent
+                        anchors.margins: 15
+                        spacing: 8
 
-            /* ───────── Métricas de Calidad ───────── */
-            Label {
-                text: qsTr("Métricas de Calidad")
-                font.bold: true
-                color: "white"
-                font.pixelSize: 18
-            }
-            GridLayout {
-                id: qualityGrid
-                columns: 2
-                columnSpacing: 32
-                rowSpacing: 32
-                Layout.fillWidth: true
+                        RowLayout {
+                            Layout.fillWidth: true
 
-                Card {
-                    title: qsTr("Pérdida Media (ACPL)")
-                    value: formatNumber(dummyMetrics.avg_acpl, 1)
-                }
-                Card {
-                    title: qsTr("Desv. ACPL")
-                    value: formatNumber(dummyMetrics.std_acpl, 1)
-                }
-                Card {
-                    title: qsTr("Coincidencia con el Módulo")
-                    value: formatNumber(dummyMetrics.avg_match_rate * 100, 1) + " %"
-                }
-                Card {
-                    title: qsTr("IPR")
-                    value: formatNumber(dummyMetrics.avg_ipr, 0)
-                }
-            }
+                            Text {
+                                text: "Intrinsic Performance"
+                                color: "#9ca3af"
+                                font.pixelSize: 12
+                                font.weight: Font.Medium
+                            }
 
-            /* ───────── Factores de Riesgo ───────── */
-            Label {
-                text: qsTr("Factores de Riesgo")
-                font.bold: true
-                color: "white"
-                font.pixelSize: 18
-            }
-            GridLayout {
-                columns: 2
-                columnSpacing: 32
-                rowSpacing: 32
-                Layout.fillWidth: true
+                            Item { Layout.fillWidth: true }
 
-                Card {
-                    title: qsTr("Step Function")
-                    value: dummyMetrics.step_function_detected ? qsTr("Detectada") : qsTr("No Detectada")
-                    subtitle: qsTr("Nivel de Confianza ") + formatNumber(dummyMetrics.risk.confidence_level * 100, 0) + " %"
+                            Text {
+                                text: "⚡"
+                                font.pixelSize: 16
+                                color: "#a78bfa"
+                            }
+                        }
+
+                        Text {
+                            text: root.formatNumber(root.metrics ? root.metrics.avg_ipr : 0, 0)
+                            color: "#4ade80"
+                            font.pixelSize: 32
+                            font.weight: Font.Bold
+                        }
+
+                        Text {
+                            text: "Estimated ELO based on moves"
+                            color: "#6b7280"
+                            font.pixelSize: 12
+                        }
+                    }
                 }
 
-                Card {
-                    title: qsTr("Nivel de Confianza")
-                    value: formatNumber(dummyMetrics.risk.confidence_level * 100, 0) + "%"
-                    subtitle: qsTr("Factores de Riesgo")
-                }
-            }
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 120
+                    color: "#1f2937"
+                    border.color: "#374151"
+                    border.width: 1
+                    radius: 8
 
-            /* ───────── Análisis Longitudinal ───────── */
-            Label {
-                text: qsTr("Análisis Longitudinal (ROI)")
-                font.bold: true
-                color: "white"
-                font.pixelSize: 18
-            }
-            RowLayout {
-                Layout.fillWidth: true
-                spacing: 32
+                    ColumnLayout {
+                        anchors.fill: parent
+                        anchors.margins: 15
+                        spacing: 8
 
-                Card {
-                    title: qsTr("ROI Medio")
-                    value: formatNumber(dummyMetrics.roi_mean, 2)
-                }
-                Card {
-                    title: qsTr("ROI Máximo")
-                    value: formatNumber(dummyMetrics.roi_max, 2)
-                }
-                Card {
-                    title: qsTr("Desviación ROI")
-                    value: formatNumber(dummyMetrics.roi_std, 2)
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            Text {
+                                text: "Sudden Improvement"
+                                color: "#9ca3af"
+                                font.pixelSize: 12
+                                font.weight: Font.Medium
+                            }
+
+                            Item { Layout.fillWidth: true }
+
+                            Text {
+                                text: "📈"
+                                font.pixelSize: 16
+                                color: "#fb923c"
+                            }
+                        }
+
+                        Text {
+                            text: root.metrics && root.metrics.step_function_detected ? "Detected" : "No"
+                            color: root.metrics && root.metrics.step_function_detected ? "#fb923c" : "#4ade80"
+                            font.pixelSize: 32
+                            font.weight: Font.Bold
+                        }
+
+                        Text {
+                            text: "Magnitude: " + root.formatNumber(root.metrics ? root.metrics.step_function_magnitude : 0, 0)
+                            color: "#6b7280"
+                            font.pixelSize: 12
+                        }
+                    }
                 }
             }
 
-            /* ───────── Tendencias ───────── */
-            Label {
-                text: qsTr("Tendencias")
-                font.bold: true
-                color: "white"
-                font.pixelSize: 18
-            }
             GridLayout {
                 columns: 2
-                columnSpacing: 32
-                rowSpacing: 32
+                columnSpacing: 20
+                rowSpacing: 20
                 Layout.fillWidth: true
 
-                Card {
-                    title: qsTr("Tendencia ACPL")
-                    value: formatNumber(dummyMetrics.performance.trend_acpl, 2) + " cp / 100 partidas"
-                    subtitle: dummyMetrics.performance.trend_acpl > 0 ? qsTr("Empeoramiento") : qsTr("Mejora")
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 300
+                    color: "#1f2937"
+                    border.color: "#374151"
+                    border.width: 1
+                    radius: 8
+
+                    ColumnLayout {
+                        anchors.fill: parent
+                        anchors.margins: 20
+                        spacing: 15
+
+                        RowLayout {
+                            spacing: 8
+
+                            Text {
+                                text: "🧠"
+                                font.pixelSize: 16
+                                color: "#60a5fa"
+                            }
+
+                            Text {
+                                text: "Quality Metrics"
+                                color: "white"
+                                font.pixelSize: 16
+                                font.weight: Font.Bold
+                            }
+                        }
+
+                        Text {
+                            text: "Indicators of game quality and consistency."
+                            color: "#9ca3af"
+                            font.pixelSize: 14
+                        }
+
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 15
+
+                            MetricDisplay {
+                                Layout.fillWidth: true
+                                label: "Average Centipawn Loss (ACPL)"
+                                value: root.formatNumber(root.metrics ? root.metrics.avg_acpl : 0)
+                                tooltipText: "Average value lost due to suboptimal moves. Lower is better. Very low ACPL for the player's rating may be suspicious."
+                            }
+
+                            MetricDisplay {
+                                Layout.fillWidth: true
+                                label: "ACPL Standard Deviation"
+                                value: root.formatNumber(root.metrics ? root.metrics.std_acpl : 0)
+                                tooltipText: "Measures consistency. Very low values may indicate unnatural uniformity."
+                            }
+
+                            MetricDisplay {
+                                Layout.fillWidth: true
+                                label: "Engine Match Rate"
+                                value: root.formatNumber(root.metrics ? root.metrics.avg_match_rate * 100 : 0) + "%"
+                                tooltipText: "Average percentage of moves matching the engine's first choice."
+                            }
+
+                            MetricDisplay {
+                                Layout.fillWidth: true
+                                label: "Match Rate Std Dev"
+                                value: root.formatNumber(root.metrics ? root.metrics.std_match_rate * 100 : 0) + "%"
+                                tooltipText: "Consistency of match rate. Low variability can be a warning sign."
+                            }
+                        }
+                    }
                 }
 
-                Card {
-                    title: qsTr("Tendencia Match Rate")
-                    value: formatNumber(dummyMetrics.performance.trend_match_rate * 100, 1) + "%"
-                    subtitle: qsTr("Análisis de tendencias temporales")
-                }
-            }
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 300
+                    color: "#1f2937"
+                    border.color: "#374151"
+                    border.width: 1
+                    radius: 8
 
-            /* ───────── Patrones de Apertura ───────── */
-            Label {
-                text: qsTr("Patrones de Apertura")
-                font.bold: true
-                color: "white"
-                font.pixelSize: 18
-            }
-            GridLayout {
-                columns: 2
-                columnSpacing: 32
-                rowSpacing: 32
-                Layout.fillWidth: true
+                    ColumnLayout {
+                        anchors.fill: parent
+                        anchors.margins: 20
+                        spacing: 15
 
-                Card {
-                    title: qsTr("Entropía Media")
-                    value: formatNumber(dummyMetrics.opening_patterns.mean_entropy, 2)
-                }
-                Card {
-                    title: qsTr("Amplitud de Apertura")
-                    value: dummyMetrics.opening_patterns.opening_breadth.toString()
-                }
-                Card {
-                    title: qsTr("Profundidad de Novedad")
-                    value: formatNumber(dummyMetrics.opening_patterns.novelty_depth, 1)
-                }
-                Card {
-                    title: qsTr("Tasa Segunda Opción")
-                    value: formatNumber(dummyMetrics.opening_patterns.second_choice_rate * 100, 1) + "%"
-                }
-            }
+                        RowLayout {
+                            spacing: 8
 
-            /* ───────── Calidad por Fases ───────── */
-            Label {
-                text: qsTr("Calidad por Fases")
-                font.bold: true
-                color: "white"
-                font.pixelSize: 18
-            }
-            GridLayout {
-                columns: 2
-                columnSpacing: 32
-                rowSpacing: 32
-                Layout.fillWidth: true
+                            Text {
+                                text: "🛡️"
+                                font.pixelSize: 16
+                                color: "#ef4444"
+                            }
 
-                Card {
-                    title: qsTr("ACPL Apertura")
-                    value: formatNumber(dummyMetrics.phase_quality.opening_acpl, 1)
-                }
-                Card {
-                    title: qsTr("ACPL Medio Juego")
-                    value: formatNumber(dummyMetrics.phase_quality.middlegame_acpl, 1)
-                }
-                Card {
-                    title: qsTr("ACPL Final")
-                    value: formatNumber(dummyMetrics.phase_quality.endgame_acpl, 1)
-                }
-                Card {
-                    title: qsTr("Tasa de Errores")
-                    value: formatNumber(dummyMetrics.phase_quality.blunder_rate * 100, 1) + "%"
-                }
-            }
+                            Text {
+                                text: "Risk Factors"
+                                color: "white"
+                                font.pixelSize: 16
+                                font.weight: Font.Bold
+                            }
+                        }
 
-            /* ───────── Gestión del Tiempo ───────── */
-            Label {
-                text: qsTr("Gestión del Tiempo")
-                font.bold: true
-                color: "white"
-                font.pixelSize: 18
-            }
-            GridLayout {
-                columns: 2
-                columnSpacing: 32
-                rowSpacing: 32
-                Layout.fillWidth: true
+                        Text {
+                            text: "Specific factors contributing to the risk score."
+                            color: "#9ca3af"
+                            font.pixelSize: 14
+                        }
 
-                Card {
-                    title: qsTr("Tiempo Medio por Jugada")
-                    value: formatNumber(dummyMetrics.time_management.mean_move_time, 1) + "s"
-                }
-                Card {
-                    title: qsTr("Varianza de Tiempo")
-                    value: formatNumber(dummyMetrics.time_management.time_variance, 1)
-                }
-                Card {
-                    title: qsTr("Puntuación de Uniformidad")
-                    value: formatNumber(dummyMetrics.time_management.uniformity_score, 2)
-                }
-                Card {
-                    title: qsTr("Picos de Lag")
-                    value: dummyMetrics.time_management.lag_spike_count.toString()
-                }
-            }
+                        ScrollView {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
 
-            /* ───────── Resumen Final ───────── */
-            Label {
-                text: qsTr("Resumen del Análisis")
-                font.bold: true
-                color: "white"
-                font.pixelSize: 18
-            }
-            RowLayout {
-                Layout.fillWidth: true
-                spacing: 32
+                            ColumnLayout {
+                                width: parent.width
+                                spacing: 10
 
-                Card {
-                    title: qsTr("Puntuación Final")
-                    value: formatNumber(dummyMetrics.risk.risk_score, 0) + "/100"
-                }
-                Card {
-                    title: qsTr("Partidas Analizadas")
-                    value: dummyMetrics.games_analyzed.toString()
-                }
-                Card {
-                    title: qsTr("Partidas Sospechosas")
-                    value: dummyMetrics.risk.suspicious_games_count.toString()
+                                Text {
+                                    text: root.metrics && Object.keys(root.metrics.risk.risk_factors).length > 0 ?
+                                          "Risk factors detected" : "No specific risk factors detected."
+                                    color: "#9ca3af"
+                                    font.pixelSize: 14
+                                    Layout.alignment: Qt.AlignHCenter
+                                }
+
+                                Rectangle {
+                                    Layout.fillWidth: true
+                                    Layout.preferredHeight: 1
+                                    color: "#374151"
+                                    Layout.topMargin: 10
+                                }
+
+                                MetricDisplay {
+                                    Layout.fillWidth: true
+                                    label: "Confidence Level"
+                                    value: root.formatNumber(root.metrics ? root.metrics.risk.confidence_level * 100 : 0, 0) + "%"
+                                    tooltipText: "The confidence level of the risk assessment, based on available data."
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

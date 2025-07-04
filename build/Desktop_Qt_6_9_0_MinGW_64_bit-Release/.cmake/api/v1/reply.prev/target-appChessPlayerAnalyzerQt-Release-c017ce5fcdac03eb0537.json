@@ -104,13 +104,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 42,
+				"line" : 46,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 37,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
@@ -454,18 +454,6 @@
 			{
 				"command" : 14,
 				"file" : 10,
-				"line" : 3471,
-				"parent" : 68
-			},
-			{
-				"command" : 13,
-				"file" : 10,
-				"line" : 2870,
-				"parent" : 69
-			},
-			{
-				"command" : 14,
-				"file" : 10,
 				"line" : 3465,
 				"parent" : 68
 			},
@@ -473,7 +461,7 @@
 				"command" : 13,
 				"file" : 10,
 				"line" : 2870,
-				"parent" : 71
+				"parent" : 69
 			},
 			{
 				"file" : 1,
@@ -484,36 +472,48 @@
 				"command" : 20,
 				"file" : 23,
 				"line" : 1,
-				"parent" : 73
+				"parent" : 71
 			},
 			{
 				"command" : 19,
 				"file" : 0,
 				"line" : 816,
-				"parent" : 74
+				"parent" : 72
 			},
 			{
 				"command" : 18,
 				"file" : 0,
 				"line" : 738,
-				"parent" : 75
+				"parent" : 73
 			},
 			{
 				"command" : 17,
 				"file" : 0,
 				"line" : 738,
-				"parent" : 76
+				"parent" : 74
 			},
 			{
 				"command" : 16,
 				"file" : 10,
 				"line" : 4344,
-				"parent" : 77
+				"parent" : 75
 			},
 			{
 				"command" : 13,
 				"file" : 10,
 				"line" : 4119,
+				"parent" : 76
+			},
+			{
+				"command" : 14,
+				"file" : 10,
+				"line" : 3471,
+				"parent" : 68
+			},
+			{
+				"command" : 13,
+				"file" : 10,
+				"line" : 2870,
 				"parent" : 78
 			},
 			{
@@ -682,7 +682,7 @@
 				"command" : 30,
 				"file" : 0,
 				"line" : 810,
-				"parent" : 74
+				"parent" : 72
 			},
 			{
 				"command" : 23,
@@ -1078,22 +1078,22 @@
 	[
 		{
 			"backtrace" : 70,
-			"id" : "appChessPlayerAnalyzerQt_copy_res::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 72,
 			"id" : "appChessPlayerAnalyzerQt_copy_qml::@6890427a1f51a3e7e1df"
 		},
 		{
-			"backtrace" : 79,
+			"backtrace" : 77,
 			"id" : "appChessPlayerAnalyzerQt_qmlimportscan::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "appChessPlayerAnalyzerQt_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 79,
+			"id" : "appChessPlayerAnalyzerQt_copy_res::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 0,
 			"id" : "appChessPlayerAnalyzerQt_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "appChessPlayerAnalyzerQt_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "appChessPlayerAnalyzerQt::@6890427a1f51a3e7e1df",
@@ -1368,50 +1368,50 @@
 		},
 		{
 			"backtrace" : 95,
-			"path" : "FeatureCard.qml",
+			"path" : "MetricDisplay.qml",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 96,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_FeatureCard_qml.cpp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_MetricDisplay_qml.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 97,
-			"path" : "MetricCard.qml",
+			"path" : "PlayersList.qml",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 98,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_MetricCard_qml.cpp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_PlayersList_qml.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 99,
-			"path" : "ResultsPage.qml",
+			"path" : "RootLayout.qml",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 100,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_ResultsPage_qml.cpp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_RootLayout_qml.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 101,
-			"path" : "Card.qml",
+			"path" : "HomePage.qml",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 102,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_Card_qml.cpp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_HomePage_qml.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -1478,25 +1478,25 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_FeatureCard_qml.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_MetricDisplay_qml.cpp.rule",
 			"sourceGroupIndex" : 4
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_MetricCard_qml.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_PlayersList_qml.cpp.rule",
 			"sourceGroupIndex" : 4
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_ResultsPage_qml.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_RootLayout_qml.cpp.rule",
 			"sourceGroupIndex" : 4
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_Card_qml.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.rcc/qmlcache/appChessPlayerAnalyzerQt_HomePage_qml.cpp.rule",
 			"sourceGroupIndex" : 4
 		},
 		{

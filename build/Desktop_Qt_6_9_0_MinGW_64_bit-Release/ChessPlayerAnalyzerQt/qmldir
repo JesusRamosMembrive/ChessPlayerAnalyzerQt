@@ -2,8 +2,9 @@ module ChessPlayerAnalyzerQt
 typeinfo appChessPlayerAnalyzerQt.qmltypes
 prefer :/qt/qml/ChessPlayerAnalyzerQt/
 Main 1.0 Main.qml
-FeatureCard 1.0 FeatureCard.qml
-MetricCard 1.0 MetricCard.qml
+MetricDisplay 1.0 MetricDisplay.qml
+PlayersList 1.0 PlayersList.qml
+RootLayout 1.0 RootLayout.qml
+HomePage 1.0 HomePage.qml
 ResultsPage 1.0 ResultsPage.qml
-Card 1.0 Card.qml
 

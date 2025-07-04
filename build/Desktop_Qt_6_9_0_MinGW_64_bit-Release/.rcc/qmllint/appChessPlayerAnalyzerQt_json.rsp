@@ -8,9 +8,10 @@ H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Releas
 --resource
 H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/.qt/rcc/appChessPlayerAnalyzerQt_raw_qml_0.qrc
 H:/Git_Overture/ChessPlayerAnalyzerQt/Main.qml
-H:/Git_Overture/ChessPlayerAnalyzerQt/FeatureCard.qml
-H:/Git_Overture/ChessPlayerAnalyzerQt/MetricCard.qml
+H:/Git_Overture/ChessPlayerAnalyzerQt/MetricDisplay.qml
+H:/Git_Overture/ChessPlayerAnalyzerQt/PlayersList.qml
+H:/Git_Overture/ChessPlayerAnalyzerQt/RootLayout.qml
+H:/Git_Overture/ChessPlayerAnalyzerQt/HomePage.qml
 H:/Git_Overture/ChessPlayerAnalyzerQt/ResultsPage.qml
-H:/Git_Overture/ChessPlayerAnalyzerQt/Card.qml
 --json
 H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/appChessPlayerAnalyzerQt_qmllint.json
