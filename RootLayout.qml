@@ -14,13 +14,13 @@ ApplicationWindow {
     title: appTitle
     color: "#000000"
 
-    // property alias contentItem: contentLoader.item
+    property alias contentItem: contentLoader.item
     property string currentPage: "HomePage"
 
     Loader {
         id: contentLoader
         anchors.fill: parent
-        source: "../pages/" + window.currentPage + ".qml"
+        source: window.currentPage + ".qml"
 
         onLoaded: {
             if (item && typeof item.parentWindow !== "undefined") {
