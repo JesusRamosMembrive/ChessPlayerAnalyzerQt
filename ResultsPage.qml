@@ -6,9 +6,31 @@ ScrollView {
     id: root
 
     property var parentWindow
-    property string username: ""
-    property var metrics: null
-    property bool loading: true
+    property string username: "SamplePlayer"
+    property var metrics: ({
+        "username": "SamplePlayer",
+        "analyzed_at": "2024-07-04T12:00:00Z",
+        "games_analyzed": 247,
+        "first_game_date": "2024-01-15T10:30:00Z",
+        "last_game_date": "2024-06-30T18:45:00Z",
+        "avg_ipr": 1847,
+        "step_function_detected": true,
+        "step_function_magnitude": 156,
+        "avg_acpl": 28.4,
+        "std_acpl": 12.7,
+        "avg_match_rate": 0.42,
+        "std_match_rate": 0.18,
+        "risk": {
+            "risk_score": 73,
+            "confidence_level": 0.87,
+            "risk_factors": {
+                "low_acpl_for_rating": true,
+                "high_engine_correlation": true,
+                "sudden_improvement": true
+            }
+        }
+    })
+    property bool loading: false
     property string error: ""
 
     signal backRequested()

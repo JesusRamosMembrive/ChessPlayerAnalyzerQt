@@ -31,5 +31,8 @@ ApplicationWindow {
 
     function navigateTo(pageName) {
         currentPage = pageName
+        if (contentLoader.item) {
+            contentLoader.item.parentWindow = window
+        }
     }
 }

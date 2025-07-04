@@ -170,6 +170,30 @@ ScrollView {
                                         }
                                     }
                                 }
+
+                                Button {
+                                    Layout.fillWidth: true
+                                    text: "View Sample Results"
+
+                                    background: Rectangle {
+                                        color: "#1e40af"
+                                        radius: 4
+                                    }
+
+                                    contentItem: Text {
+                                        text: parent.text
+                                        color: "white"
+                                        font.pixelSize: 14
+                                        horizontalAlignment: Text.AlignHCenter
+                                        verticalAlignment: Text.AlignVCenter
+                                    }
+
+                                    onClicked: {
+                                        if (root.parentWindow) {
+                                            root.parentWindow.navigateTo("ResultsPage")
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
