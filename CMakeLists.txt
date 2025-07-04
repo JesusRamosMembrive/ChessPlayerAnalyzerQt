@@ -15,17 +15,13 @@ qt_add_executable(appChessPlayerAnalyzerQt
     main.cpp
 )
 
-qt_add_qml_module(appChessPlayerAnalyzerQt
-    URI ChessPlayerAnalyzerQt
-    VERSION 1.0
-    QML_FILES
-        Main.qml
-        MetricDisplay.qml
-        PlayersList.qml
-        RootLayout.qml
-        HomePage.qml
-        ResultsPage.qml
-)
+# Copy QML files to build directory
+configure_file(Main.qml Main.qml COPYONLY)
+configure_file(HomePage.qml HomePage.qml COPYONLY)
+configure_file(ResultsPage.qml ResultsPage.qml COPYONLY)
+configure_file(RootLayout.qml RootLayout.qml COPYONLY)
+configure_file(MetricDisplay.qml MetricDisplay.qml COPYONLY)
+configure_file(PlayersList.qml PlayersList.qml COPYONLY)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
