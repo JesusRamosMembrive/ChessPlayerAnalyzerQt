@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/ChessPlayerAnalyzerQt">
+    <file alias="qmldir">H:/Git_Overture/ChessPlayerAnalyzerQt/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/ChessPlayerAnalyzerQt/qmldir</file>
+  </qresource>
+</RCC>
+
